@@ -1,6 +1,13 @@
 call plug#begin()
-    Plug 'itchyny/lightline.vim'
-    Plug 'wadackel/vim-dogrun'
+  let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+  if empty(glob(data_dir . '/autoload/plug.vim'))
+    silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+    autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+  endif
+  Plug 'itchyny/lightline.vim'
+  Plug 'wadackel/vim-dogrun'
+  Plug 'tidalcycles/vim-tidal'
+
 call plug#end()
 
 set laststatus=2
@@ -30,7 +37,5 @@ set wrap
 
 colorscheme dogrun
 set background=dark
-let g:lightline = {
-  \ 'colorscheme': 'dogrun',
-  \ }
+
 highlight Normal ctermbg=0 guibg=#000000
