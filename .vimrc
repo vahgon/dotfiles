@@ -35,7 +35,6 @@ set tw=500
 set ai
 set wrap
 
-colorscheme dogrun
 set background=dark
 
 highlight Normal ctermbg=0 guibg=#000000
